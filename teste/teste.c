@@ -35,6 +35,8 @@ int main(int argc, char* argv[]) {
 /*
     
     estrutura do argv serve como scanf mais simplificado, colocar depois do .exe
+    sempre usar com #include <stdlib.h>
+
 
    
 */
