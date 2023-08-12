@@ -1,25 +1,45 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-float calcular_dobro(float n){
-    return n*2;
+
+int verificar_numero_primo (int n){
+return 0;
 
 }
 
-int main() {
+
+int main(int argc, char* argv[]) {
 	
-     float n = 5.1;
+ int n, i, res=0;
+
+    n = atoi(argv[1]);
+
+    for (i=2; i<=n/2;i++){
+        if (n % i == 0){
+
+            res++;
+            break;
+        }
+    }
 
 
 
-    printf ("%.2f", calcular_dobro);
-
-    /*
+    if (res == 0){
+        printf (" %d o número n e primo", n);
     
-    gcc - fazer o executável
-    .\  - executar-lo
-    gcc "nome da pasta" -o "colocar o nome do executável"
+    } else {
+        printf (" %d o número e primo", n);
+
+    }
+
+/*
     
-   */ 
+    estrutura do argv serve como scanf mais simplificado, colocar depois do .exe
+
+   
+*/
+
+
     
     return 0;
 }
