@@ -2,27 +2,29 @@
 #include <stdlib.h>
 
 int main(int argc, char *argv[]) {
+    int qtdNum = 0, o = 1, somaTot = 0;
 
+    printf("Digite a quantidade de numeros que deseja informar: ");
+    scanf("%i", &qtdNum);
+
+    int nColocados[qtdNum];
+
+    for (int i = 0; i < qtdNum; i++) {
+        printf("%i Numero: ", o);
+        scanf("%i", &nColocados[i]);
+      o++;
+      somaTot+=nColocados[i];
+        
+    }
    
- int vetor1[], i, somaTot, p;
+   for (int i = 0; i < qtdNum; i++){
 
- printf ("Informe a quantidade de números desejada: ");
- scanf ("%i", &i);
+    printf ("%d\t", nColocados[i]);
 
-
- for (p = 1; p<=i;p++){
-
-
-    printf ("Informe o %i numero: ", p);
-    scanf ("%i", vetor1[p]);
-
-    somaTot+=vetor1[p];
-
-
- }
+   }
+   
+    printf ("soma de todos os numeros: %i", somaTot);
     
-printf ("soma de todos: %i", somaTot);
-
 
     return 0;
 }
