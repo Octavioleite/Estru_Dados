@@ -11,7 +11,7 @@ int main() {
     char nome[MAX_LIVROS][TAM_NOME];
 
     while (1) {
-        printf("1-Adicionar livro\n2-Listar livros presentes na lista\n3-Sair do programa\nEscolha: ");
+        printf("1-Adicionar livro\n2-Listar livros presentes na lista\n3-Sair do programa\n4-Remover livro\nEscolha: ");
         scanf("%i", &opcao);
 
         if (opcao == 1) {
@@ -37,6 +37,28 @@ int main() {
             system("pause");
         } else if (opcao == 3) {
             break;  // Encerra o programa
+        } else if (opcao == 4) {
+            int removerLivro = 0;
+            printf("Informe o id do livro que deseja remover: ");
+            scanf("%i", &removerLivro);
+            int livroEncontrado = -1;
+
+            for (int i = 0; i < rodagem; i++) {
+                if (removerLivro == id[i]) {
+                    livroEncontrado = i;
+                }
+            }
+
+            if (livroEncontrado != -1) {
+                for (int i = livroEncontrado; i < rodagem - 1; i++) {
+                    id[i] = id[i + 1];
+                    strcpy(nome[i], nome[i + 1]); // Copie corretamente o nome
+                }
+                rodagem--;
+                printf("Livro removido\n");
+            } else {
+                printf("Livro não encontrado\n");
+            }
         }
     }
 
