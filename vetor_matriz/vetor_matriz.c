@@ -5,13 +5,46 @@
 #define MAX_LIVROS 100
 #define TAM_NOME 100
 
+// Função para salvar os dados em um arquivo de texto
+void salvarDados(int id[], char nome[][TAM_NOME], int rodagem) {
+    FILE *arquivo = fopen("livros.txt", "a+");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo para escrita.\n");
+        return;
+    }
+
+    for (int i = 0; i < rodagem; i++) {
+        fprintf(arquivo, "Id do livro: %i\n", id[i]);
+        fprintf(arquivo, "Nome do livro: %s\n", nome[i]);
+    }
+
+    fclose(arquivo);
+    printf("Dados salvos em livros.txt\n");
+}
+
+// Função para listar os livros presentes no arquivo de texto
+void listarLivros() {
+    FILE *arquivo = fopen("livros.txt", "r");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo para leitura.\n");
+        return;
+    }
+
+    char linha[256];
+    while (fgets(linha, sizeof(linha), arquivo)) {
+        printf("%s", linha);
+    }
+
+    fclose(arquivo);
+}
+
 int main() {
     int opcao = 0, rodagem = 0;
     int id[MAX_LIVROS];
     char nome[MAX_LIVROS][TAM_NOME];
 
     while (1) {
-        printf("1-Adicionar livro\n2-Listar livros presentes na lista\n3-Sair do programa\n4-Remover livro\nEscolha: ");
+        printf("1-Adicionar livro\n2-Listar livros presentes na lista\n3-Sair do programa\n4-Remover livro\n5-Salvar em arquivo\nEscolha: ");
         scanf("%i", &opcao);
 
         if (opcao == 1) {
@@ -30,10 +63,7 @@ int main() {
                 printf("Limite de livros atingido.\n");
             }
         } else if (opcao == 2) {
-            for (int i = 0; i < rodagem; i++) {
-                printf("Id do livro adicionado: %i\n", id[i]);
-                printf("Nome do livro: %s\n", nome[i]);
-            }
+            listarLivros();
             system("pause");
         } else if (opcao == 3) {
             break;  // Encerra o programa
@@ -59,6 +89,8 @@ int main() {
             } else {
                 printf("Livro não encontrado\n");
             }
+        } else if (opcao == 5) {
+            salvarDados(id, nome, rodagem);
         }
     }
 
