@@ -1,25 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "pilha.h"
+#include "fila.h"
 
 int main(int argc, char* argv[]){
 
     Objeto o1;
-    Objeto o2;
-    Objeto o3;
-    Objeto o4;
-    Objeto* o;
     o1.valor = 'A';
+    Objeto o2;
     o2.valor = 'B';
+    Objeto o3;
     o3.valor = 'C';
-    o4.valor = 'D';
-    Pilha* P = pilha();
-    empilhar(&o1, P);
-    empilhar(&o2, P);
-    empilhar(&o3, P);
-    empilhar(&o4, P);
+
+    Fila* F = fila();
+    enfileirar(&o1, F);
+    enfileirar(&o2, F);
+    enfileirar(&o3, F);
+
+    Objeto* o = NULL;
     do{
-        o = desempilhar(P);
+        o = desenfileirar(F);
         if(o != NULL){
             printf("%c\n", o->valor);
         }
