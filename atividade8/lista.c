@@ -51,3 +51,6 @@ void lista_liberar(No* L){
         free(L);
     }
 }
+int lista_verificar_existencia(No* L, char valor_busca){
+    printf ("teste01");
+}
