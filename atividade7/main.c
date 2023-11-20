@@ -13,11 +13,11 @@ int main() {
     TarefaImpressao tarefa1 = {20, "Estrutura.pdf"};
     TarefaImpressao tarefa2 = {12, "IPVA.pdf"};
     TarefaImpressao tarefa3 = {4, "DIREITOS.pdf"};
-
+    TarefaImpressao tarefa4 = {10, "APELIDOS_TONINHO.pdf"};
     enfileirar(&fila, tarefa1);
     enfileirar(&fila, tarefa2);
     enfileirar(&fila, tarefa3);
-    
+    enfileirar(&fila, tarefa4);
     while (fila.frente <= fila.tras) {
         desenfileirar(&fila);
     }
@@ -34,14 +34,11 @@ int main() {
     Livro livro2 = {"1001 dalmatas", "Gabriel García Márquez", 1967};
     Livro livro3 = {"A Arte da Guerra", "Sun Tzu", -500}; 
     Livro livro4 = {"Ulisses", "James Joyce", 1922};
-    Livro livro5 = {"octavio", "leite neto", 2003};
 
     empilharLivro(&minhaEstante, livro1);
     empilharLivro(&minhaEstante, livro2);
     empilharLivro(&minhaEstante, livro3);
     empilharLivro(&minhaEstante, livro4);
-    empilharLivro(&minhaEstante, livro5);
-    desempilharLivro(&minhaEstante);
     desempilharLivro(&minhaEstante);
     desempilharLivro(&minhaEstante);
     desempilharLivro(&minhaEstante);
